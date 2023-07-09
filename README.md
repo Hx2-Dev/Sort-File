@@ -4,7 +4,8 @@
 ### 登録
 1. `Sort-File.ps1`の`$StartPath`に探索フォルダのパスを追加する
 
+▽ ダウンロードフォルダの例
 ```PowerShell
-$StartPath = "C:\Users\7ka44\Downloads"
+$StartPath = "C:\Users\****\Downloads"
 ```
 2. 
