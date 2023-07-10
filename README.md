@@ -1,12 +1,15 @@
 # Sort-File
-任意のファイル・フォルダを仕分けて移動させるPowerShell
+任意のファイル・フォルダを仕分けて移動させるPowerShellスクリプト
 
 ## 概要
 - `Sort-File.bat`
-
-プログラムの起動部分 `Sort-File.ps1` を呼び出している
-- `Sort-File.bat - ショートカット` ... ``Sort-File.bat` と同じ役割
-- `Sort-File.ps1` ... 
+  - `Sort-File.ps1` を呼び出すプログラムの起動部分
+  - `Sort-File.ps1` と同じフォルダになければならない
+- `Sort-File.bat - ショートカット`
+  - `Sort-File.bat` のショートカット
+- `Sort-File.ps1`
+  - プログラムの本体部分
+  - パスやフィルタを直接設定するファイル
 
 ## 使い方
 ### 登録
