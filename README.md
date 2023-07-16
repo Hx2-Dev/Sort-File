@@ -44,3 +44,8 @@ $SortTable = @(
 - 実行
 
      移動してほしいタイミングで `Sort-File.bat` または `Sort-File.bat - ショートカット` から実行
+
+## 利用・改変
+- ライセンス：MIT license
+- 利用・改変自由
+- 文字コードは `UTF-8`
