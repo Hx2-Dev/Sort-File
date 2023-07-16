@@ -1,12 +1,12 @@
-# ŠÖ”’è‹` ------------------------------------------------------------
-# ƒ†[ƒU[‚©‚ç‚Ì“ü—Í‚ð‘Ò‚Á‚Ä‚©‚çƒvƒƒZƒX‚ðI—¹
-# ŸŽè‚ÉƒvƒƒZƒX‚ªI—¹‚·‚é‚±‚Æ‚ð–h‚®
+# é–¢æ•°å®šç¾© ------------------------------------------------------------
+# ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‹ã‚‰ã®å…¥åŠ›ã‚’å¾…ã£ã¦ã‹ã‚‰ãƒ—ãƒ­ã‚»ã‚¹ã‚’çµ‚äº†
+# å‹æ‰‹ã«ãƒ—ãƒ­ã‚»ã‚¹ãŒçµ‚äº†ã™ã‚‹ã“ã¨ã‚’é˜²ã
 function Exit-Process {
     Read-Host "Push enter to end process" > $null
     exit
 }
 
-# ƒpƒX‚ª$Null‚©‹ó•¶Žš‚Å‚ ‚é‚©‚ðŠm”F
+# ãƒ‘ã‚¹ãŒ$Nullã‹ç©ºæ–‡å­—ã§ã‚ã‚‹ã‹ã‚’ç¢ºèª
 function Test-NullorEmptyPath {
     param (
         $Path
@@ -14,7 +14,7 @@ function Test-NullorEmptyPath {
     return [string]::IsNullOrEmpty($Path)
 }
 
-# ƒpƒX‚ª‘¶Ý‚·‚é‚©‚ðŠm”F
+# ãƒ‘ã‚¹ãŒå­˜åœ¨ã™ã‚‹ã‹ã‚’ç¢ºèª
 function Test-NotExistPath {
     param (
         $Path
@@ -22,12 +22,12 @@ function Test-NotExistPath {
     return (-not (Test-Path -Path $Path))
 }
 
-# ƒvƒƒZƒX ------------------------------------------------------------
+# ãƒ—ãƒ­ã‚»ã‚¹ ------------------------------------------------------------
 
-# ’TõƒtƒHƒ‹ƒ_‚ÌƒpƒX
+# æŽ¢ç´¢ãƒ•ã‚©ãƒ«ãƒ€ã®ãƒ‘ã‚¹
 $StartPath = ""
 
-# ’TõƒtƒHƒ‹ƒ_‚Ì³“–«Šm”F
+# æŽ¢ç´¢ãƒ•ã‚©ãƒ«ãƒ€ã®æ­£å½“æ€§ç¢ºèª
 if (Test-NullorEmptyPath -Path $StartPath) {
     Write-Host ("StartPath is null or empty") -ForegroundColor DarkRed
     Exit-Process
@@ -37,12 +37,12 @@ if (Test-NotExistPath -Path $StartPath) {
     Exit-Process
 }
 
-# •ª—Þ•\
+# åˆ†é¡žè¡¨
 $SortTable = @(
     # @{
-    #   # ‘ÎÛƒtƒ@ƒCƒ‹‚ð•\‚·³‹K•\Œ»
+    #   # å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ã™æ­£è¦è¡¨ç¾
     #   Filter = "";
-    #   # ˆÚ“®æ‚ÌƒpƒX
+    #   # ç§»å‹•å…ˆã®ãƒ‘ã‚¹
     #   GoalPath = "";
     # },
     @{
@@ -51,10 +51,10 @@ $SortTable = @(
     }
 )
 
-# •ª—Þ•\‚Ì—LŒø‚È€–Ú‚ÌƒCƒ“ƒfƒbƒNƒXƒŠƒXƒg
+# åˆ†é¡žè¡¨ã®æœ‰åŠ¹ãªé …ç›®ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒªã‚¹ãƒˆ
 $ValidIndexes = @()
-# •ª—Þ•\‚ÌŠe€–Ú‚Ì³“–«Šm”F
-# ƒpƒX‚Ì³“–«Šm”F‚Ì‚ÝŠm”F,³‹K•\Œ»‚ÍŽ–‘O‚ÉŠm”F‚Å‚«‚È‚¢
+# åˆ†é¡žè¡¨ã®å„é …ç›®ã®æ­£å½“æ€§ç¢ºèª
+# ãƒ‘ã‚¹ã®æ­£å½“æ€§ç¢ºèªã®ã¿ç¢ºèª,æ­£è¦è¡¨ç¾ã¯äº‹å‰ã«ç¢ºèªã§ããªã„
 for ($Index = 0; $Index -lt $SortTable.Count; $Index++) {
     if (Test-NullorEmptyPath -Path $SortTable[$Index].GoalPath) {
         Write-Host ("GoalPath (Index = " + $Index + ") is empty") -ForegroundColor DarkRed
@@ -69,10 +69,10 @@ for ($Index = 0; $Index -lt $SortTable.Count; $Index++) {
     $ValidIndexes += $true
 }
 
-# $StartPath“à‚Ìƒtƒ@ƒCƒ‹‚ð‡‚ÉŽæ“¾
+# $StartPathå†…ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é †ã«å–å¾—
 Get-ChildItem -Path $StartPath -Name | ForEach-Object {
     $FileName = $_
-    # •ª—Þ•\‚Ì—LŒø‚È€–Ú‚Ì‚ÝŽg—p
+    # åˆ†é¡žè¡¨ã®æœ‰åŠ¹ãªé …ç›®ã®ã¿ä½¿ç”¨
     for ($Index = 0; $Index -lt $SortTable.Count; $Index++) {
         if (-not $ValidIndexes[$Index]) { continue }
         if ($FileName -notmatch $SortTable[$Index].Filter) { continue }
@@ -86,6 +86,7 @@ Get-ChildItem -Path $StartPath -Name | ForEach-Object {
         Move-Item -Path ($StartPath + "\" + $FileName) $SortTable[$Index].GoalPath -Force
         Write-Host ("`"" + $FileName + "`"")
         Write-Host ("   -> Move to " + $SortTable[$Index].GoalPath)
+        break
     }
 }
 
